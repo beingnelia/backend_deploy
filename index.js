@@ -4,7 +4,7 @@ const apiSecret = process.env.API_SECRET;
 const { Vonage } = require('@vonage/server-sdk');
 const express = require('express');
 const app = express();
-const port = 3000
+const port = 5000
 const vonage = new Vonage({
   apiKey: apiKey,
   apiSecret: apiSecret
@@ -18,7 +18,7 @@ app.use(express.json());
 app.post('/send-sms', async(req, res) => {
   try {
     const to = req.body.to;
-    //const send_message = await vonage.sms.send({to, from, text});
+    // const send_message = await vonage.sms.send({to, from, text});
     return res.status(200).json({message: "Message sent successfully", data: randomFourDigitNumber})
   } catch (error) {
     console.log(error)
